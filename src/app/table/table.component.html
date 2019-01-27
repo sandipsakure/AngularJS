@@ -1,0 +1,28 @@
+<div style="padding: 32px">
+
+  <div class="example-container mat-elevation-z8">
+    <mat-table #table [dataSource]="dataSource" cdkDropList [cdkDropListData]="dataSource" (cdkDropListDropped)="dropTable($event)">
+
+      <!-- Generic column definition -->
+      <ng-container *ngFor="let column of columns" [cdkColumnDef]="column.columnDef">
+        <mat-header-cell *cdkHeaderCellDef>{{ column.header }}</mat-header-cell>
+        <div *ngIf="isAction(column.header); else notAction">
+            <mat-cell *cdkCellDef="let row">
+                <button md-raised-button (click)="onEdit(row)">Edit</button> 
+                <button md-raised-button (click)="onDelete(row)">Delete</button> 
+            </mat-cell>
+        </div>
+
+        <ng-template #notAction>
+            <mat-cell *cdkCellDef="let row">{{ column.cell(row) }}</mat-cell>    
+        </ng-template>
+
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;" cdkDrag [cdkDragData]="row"></mat-row>
+
+    </mat-table>
+  </div>
+
+
