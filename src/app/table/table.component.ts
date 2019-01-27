@@ -42,12 +42,15 @@ export class TableComponent implements OnInit {
   ];
 
   displayedColumns = this.columns.map(c => c.columnDef);
-  // displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource = ELEMENT_DATA;
   dropTable(event: CdkDragDrop<PeriodicElement[]>) {
     const prevIndex = this.dataSource.findIndex((d) => d === event.item.data);
     moveItemInArray(this.dataSource, prevIndex, event.currentIndex);
     this.table.renderRows();
+    let index = 0;
+    this.dataSource.forEach((element: PeriodicElement) => {
+      element.position = ++index;
+    });
   }
 
   isAction(str: string) {
@@ -58,11 +61,11 @@ export class TableComponent implements OnInit {
   }
 
   onDelete(row: PeriodicElement) {
-    console.log(row);
+    alert('Row to be deleted: ' + JSON.stringify(row));
   }
 
   onEdit(row: PeriodicElement) {
-    console.log(row);
+    alert('Row to be edited: ' + JSON.stringify(row));
   }
 
   ngOnInit() {
