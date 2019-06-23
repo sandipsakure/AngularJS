@@ -6,5 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  public editorValue: String = '';
+  enable = false;
   title = 'angular-tour-of-heroes';
+  text = 'green';
+
+  action() {
+    this.enable  = !this.enable;
+    console.log(this.enable);
+  }
 }

@@ -1,4 +1,4 @@
-<!--The content below is only a placeholder and can be replaced.-->
+The content below is only a placeholder and can be replaced.
 <div style="text-align:center">
   <h1>
     Welcome to {{ title }}!
@@ -9,6 +9,10 @@
     <button routerLink="/table">Table</button>
   </nav>
 </div>
+<button [ngClass]="'color-' + text">Enable</button>
+
+<ck-editor *ngIf="enable" name="editor1" [(ngModel)]="editorValue" skin="moono-lisa" language="en" [fullPage]="true"></ck-editor>
+
 
 <router-outlet></router-outlet>
 <!-- <app-messages></app-messages> -->

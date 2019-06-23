@@ -27,3 +27,11 @@ h1 {
   nav a.active {
     color: #039be5;
   }
+
+  .color-blue {
+    color: blue;
+  }
+
+  .color-green {
+    color: green;
+  }

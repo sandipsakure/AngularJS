@@ -32,6 +32,7 @@ export class TableComponent implements OnInit {
   @ViewChild('table') table: MatTable<PeriodicElement>;
 
   disable = false;
+  str = 'sandip';
 
   columns = [
     { columnDef: 'swap', header: 'Swap', },
@@ -78,7 +79,10 @@ export class TableComponent implements OnInit {
 
   onDelete(row: PeriodicElement) {
     this.disable = true;
-    this.dataSource.data = ELEMENT_DATA;
+    // this.dataSource.data = ELEMENT_DATA;
+    // console.log(this.dataSource.data);
+    console.log(this.str);
+    console.log('***: ', row);
     // alert('Row to be deleted: ' + JSON.stringify(row));
   }
 
@@ -86,6 +90,12 @@ export class TableComponent implements OnInit {
     this.disable = false;
     this.dataSource.data = ELEMENT_DATA;
     // alert('Row to be edited: ' + JSON.stringify(row));
+  }
+
+  setValue(row) {
+    // console.log(row);
+    return this.str;
+    // return row;
   }
 
 }

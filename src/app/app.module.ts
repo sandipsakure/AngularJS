@@ -12,6 +12,11 @@ import { TableComponent } from './table/table.component';
 import { MatTableModule } from '@angular/material/table';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { CdkTableModule } from '@angular/cdk/table';
+import { MatFormFieldModule } from '@angular/material';
+import { CKEditorModule } from 'ngx-ckeditor';
+import { MatInputModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SubjectService } from './dashboard/subject.service';
 
 @NgModule({
   declarations: [
@@ -28,9 +33,16 @@ import { CdkTableModule } from '@angular/cdk/table';
     FormsModule,
     MatTableModule,
     DragDropModule,
-    CdkTableModule
+    CdkTableModule,
+    CKEditorModule,
+    MatFormFieldModule,
+    MatInputModule,
+    BrowserAnimationsModule
+
   ],
-  providers: [],
+  providers: [
+    SubjectService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
